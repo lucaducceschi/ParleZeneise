@@ -1,4 +1,4 @@
-# ParleZeneise: Low-Resource Whisper Fine-Tuning
+# ParléZeneise: Low-Resource Whisper Fine-Tuning
 
 This repository contains a modular framework for fine-tuning OpenAI's Whisper model on low-resource languages (e.g., Genovese, Ladin, Sicilian). It leverages insights from the Augusta project, focusing on transcription accuracy and efficient hyperparameter management.
 
