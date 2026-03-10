@@ -8,7 +8,7 @@ search_space:
   dropout:
     type: float
     min: 0.0
-    max: 0.2  # Augusta constraint
+    max: 0.2 
   batch_size:
     type: categorical
     values: [4, 8, 16]
