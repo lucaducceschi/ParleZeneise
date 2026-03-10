@@ -13,9 +13,7 @@
 #SBATCH --error=%j_train.err
 
 # Load Environment (Adjust paths as needed)
-source ~/.bashrc
-module load anaconda3/2024.6-1
-CONDA_ENV_PATH=${CONDA_ENV_PATH:-/data/users/USER_ID/augusta-live/env}
+CONDA_ENV_PATH=${CONDA_ENV_PATH:-/data/users/env}
 source activate $CONDA_ENV_PATH
 
 # Run Training
