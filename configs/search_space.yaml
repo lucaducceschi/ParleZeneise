@@ -1,0 +1,21 @@
+# Optuna Hyperparameter Search Space
+search_space:
+  learning_rate:
+    type: float
+    min: 1e-6
+    max: 1e-4
+    log: true
+  dropout:
+    type: float
+    min: 0.0
+    max: 0.2  # Augusta constraint
+  batch_size:
+    type: categorical
+    values: [4, 8, 16]
+  gradient_accumulation_steps:
+    type: categorical
+    values: [1, 2, 4, 8]
+  weight_decay:
+    type: float
+    min: 0.0
+    max: 0.1

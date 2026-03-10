@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#SBATCH --job-name=parlezeneise_train
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=64G
+#SBATCH --time=24:00:00
+#SBATCH --partition=gpu-pre
+#SBATCH --gres=gpu:1
+#SBATCH --constraint=gpu40g
+#SBATCH --account=eurac-commul
+#SBATCH --output=%j_train.out
+#SBATCH --error=%j_train.err
+
+# Load Environment (Adjust paths as needed)
+source ~/.bashrc
+module load anaconda3/2024.6-1
+CONDA_ENV_PATH=${CONDA_ENV_PATH:-/data/users/USER_ID/augusta-live/env}
+source activate $CONDA_ENV_PATH
+
+# Run Training
+python scripts/training/trainer.py     --model_id "openai/whisper-large-v3"     --dataset_type "custom"     --data_path "data/train.csv"     --output_dir "./models/v1.0"     --batch_size 8     --gradient_accumulation_steps 2     --learning_rate 3e-5     --dropout 0.15
